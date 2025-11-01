@@ -24,20 +24,20 @@
 function binarySearch(arr,target){
     let left=0;
     let right =arr.length-1;
-   console.log("je;;")
+  
     while(left<=right){
-        let mid = Math.floor(left+right/2);
+        let mid = Math.floor((left+right)/2);
 
         if(arr[mid]==target){
             return console.log(mid)
         }else if(arr[mid]<target){
-            left = mid;
+            left = mid+1;
         }else{
-            right = mid;
+            right = mid -1;
         }
     }
 
-    console.log(-1)
+     return console.log(-1)
 }
 
 binarySearch([2,3,4,5,6,7,77,88,999],1)
