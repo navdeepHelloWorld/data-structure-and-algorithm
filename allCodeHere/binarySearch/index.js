@@ -146,3 +146,65 @@ console.log(findFirstAndLast([2], 3));                      // Expected: [-1, -1
 
 
 
+
+function findFirstAndLast(arr,target){
+    
+    let firstOcc = -1;
+    let lastOcc = -1;
+
+    let left =0;
+    let right = arr.length-1;
+    while(left<=right){
+        let mid = Math.floor((left+right)/2);
+        if(arr[mid]==target){
+            if(arr[mid-1]==target){
+                right= mid-1;
+            }else{
+                firstOcc= mid;
+                break;
+            }
+        }else if(arr[mid]<target){
+            left = mid +1;
+        }else{
+            right = mid-1;
+        }
+    }
+  
+
+    left =0;
+    right =arr.length-1;
+    while(left<=right){
+        let mid = Math.floor((left+right)/2);
+        if(arr[mid]==target){
+            if(arr[mid+1]==target){
+                left= mid+1;
+            }else{
+                lastOcc= mid;
+                break;
+            }
+        }else if(arr[mid]<target){
+            left = mid +1;
+        }else{
+            right = mid-1;
+        }
+    }
+    
+    return [firstOcc,lastOcc]
+}
+
+console.log(findFirstAndLast([1, 2, 2, 2, 3, 4, 5], 2));     // Expected: [1, 3]
+console.log(findFirstAndLast([1, 1, 1, 1, 1], 1));           // Expected: [0, 4]
+console.log(findFirstAndLast([1, 2, 3, 4, 5,6,6,6,7,9], 6));           // Expected: [-1, -1]
+console.log(findFirstAndLast([], 2));                       // Expected: [-1, -1]
+console.log(findFirstAndLast([2,2], 2));                      // Expected: [0, 0]
+console.log(findFirstAndLast([2], 3));                      // Expected: [-1, -1]
+
+
+
+ 
+
+
+
+
+
+
