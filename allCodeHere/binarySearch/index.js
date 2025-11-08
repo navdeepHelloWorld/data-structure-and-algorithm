@@ -184,7 +184,7 @@ searchRotated([5,1,3], 5);           // Expected: 2
 
 
 //------------------------------------FIND PEAK ELEMENT -------------------------------------------//
-
+/*
 function findPeakElement(arr){
 
     let left =0;
@@ -209,62 +209,70 @@ console.log(findPeakElement([1, 2, 1, 3, 5, 6, 4]));   // Expected: 5 or 2
 console.log(findPeakElement([10, 20, 15, 2, 23, 90, 67])); // Expected: 1 or 5
 console.log(findPeakElement([1]));                    // Expected: 0
 console.log(findPeakElement([2, 1]));                 // Expected: 0
+*/
 
 
+//---------------------------find posion to insert number with binary serarch -----------------------------//
+/*
+function searchInsert(nums, target) {
+  let low = 0;
+  let high = nums.length - 1;
 
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    if (nums[mid] === target) return mid;
+    else if (nums[mid] < target) low = mid + 1;
+    else high = mid - 1;
+  }
 
-
-
-function findPeakElement(arr){
-
-    let left =0;
-    let right= arr.length -1;
-
-    while(left<right){
-        
-        let mid = Math.floor((left+right)/2);
-        if(arr[mid]>arr[mid+1]){
-
-            right = mid;
-        }else{
-            left = mid+1;
-        }
-    }
-     return left
-
+  return low;
 }
 
-console.log(findPeakElement([1, 2, 3, 1]));           // Expected: 2
-console.log(findPeakElement([1, 2, 1, 3, 5, 6, 4]));   // Expected: 5 or 2
-console.log(findPeakElement([10, 20, 15, 2, 23, 90, 67])); // Expected: 1 or 5
-console.log(findPeakElement([1]));                    // Expected: 0
-console.log(findPeakElement([2, 1]));                 // Expected: 0
+console.log(searchInsert([1,3,5,6], 5));
+console.log(searchInsert([1,3,5,6], 2));
+console.log(searchInsert([1,3,5,6], 7));
+console.log(searchInsert([1,3,5,6], 0));
+console.log(searchInsert([], 10));
+
+
+*/
 
 
 
+//-----------------------------------koko eatign banana problem ----------------------------------------------------//
 
 
-function findPeakElement(arr){
+/*
+function minEatingSpeed(piles, h) {
+  let low = 1;
+  let high = Math.max(...piles);
 
-    let left =0;
-    let right= arr.length -1;
-
-    while(left<right){
-        
-        let mid = Math.floor((left+right)/2);
-        if(arr[mid]>arr[mid+1]){
-
-            right = mid;
-        }else{
-            left = mid+1;
-        }
+  function canFinish(speed) {
+    let hours = 0;
+    for (const pile of piles) {
+      hours += Math.floor((pile + speed - 1) / speed);
+      if (hours > h) return false;
     }
-     return left
+    return hours <= h;
+  }
 
+  while (low < high) {
+    const mid = Math.floor((low + high) / 2);
+    if (canFinish(mid)) high = mid;
+    else low = mid + 1;
+  }
+
+  return low;
 }
 
-console.log(findPeakElement([1, 2, 3, 1]));           // Expected: 2
-console.log(findPeakElement([1, 2, 1, 3, 5, 6, 4]));   // Expected: 5 or 2
-console.log(findPeakElement([10, 20, 15, 2, 23, 90, 67])); // Expected: 1 or 5
-console.log(findPeakElement([1]));                    // Expected: 0
-console.log(findPeakElement([2, 1]));                 // Expected: 0
+console.log(minEatingSpeed([3,6,7,11], 8));
+console.log(minEatingSpeed([30,11,23,4,20], 5));
+console.log(minEatingSpeed([30,11,23,4,20], 6));
+console.log(minEatingSpeed([100], 10));
+console.log(minEatingSpeed([1,1,1,1,1,1], 6));
+
+*/
+
+
+
+
